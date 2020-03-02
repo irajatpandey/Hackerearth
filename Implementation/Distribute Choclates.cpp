@@ -2,16 +2,20 @@
 #define ll long long
 using namespace std;
  
+
+// k, k + 1, k + 2.....k + n - 1
+// it could be written as c = n*k + n*(n - 1)/2 
+// calculate value of k from equation 
+// print the answer according to the question
+
 int distribute(ll c, ll n)
 {
-    ll sum = (n*( n + 1 )) / 2;
-    
-    if(c < sum)
-    return c;
-    else
-    {
-        c = c - sum;
-        return c % n;
+    if((n*(n + 1) / 2) > c){
+        return c;
+    }
+    else{
+        ll k = (c - (n*(n -1)/2)) / n;  
+        return c - n * k - (n * (n - 1) / 2) ;
     }
 }
  
